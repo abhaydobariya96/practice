@@ -9,21 +9,21 @@ router.post(
     userController.createUser
 );
 
-//  list
+//  Get user list
 router.get(
     "/list",
     validate(userValidation.getUserList),
     userController.getUserList
 );
 
-// update-details, user_id
+// user details update by id
 router.put(
     "/update-details/:userId",
     validate(userValidation.updateDetails),
     userController.updateDetails
   );
 
-  // Delete, user_id
+  //  Delete user
   router.delete(
     "/delete-user/:userId",
     validate(userValidation.getDetails),
