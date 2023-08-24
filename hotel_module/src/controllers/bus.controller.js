@@ -1,64 +1,63 @@
-    const { bookService } = require("../services");
+const { busService } = require("../services");
 
-/** create book */
-const createBook = async (req, res) => {
+/** create bus */
+const createBus = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const book = await bookService.createBook(reqBody);
-        if (!book) {
+        const bus = await busService.createBus(reqBody);
+        if (!bus) {
             throw new Error("Something went wrong, please try again or later!");
         }
 
         res.status(200).json({
             success: true,
-            message: "Book create successfully!",
-            data: { book },
+            message: "Bus create successfully!",
+            data: { bus },
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
     }
 };
 
-
-/** LIST book */
-const listBook = async (req, res) => {
+/** list bus */
+const listBus = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const book = await bookService.listBook(reqBody);
-        if (!book) {
+        const bus = await busService.listBus(reqBody);
+        if (!bus) {
             throw new Error("Something went wrong, please try again or later!");
         }
 
         res.status(200).json({
             success: true,
-            message: "Book list successfully!",
-            data: { book },
+            message: "Bus list successfully!",
+            data: { bus },
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
     }
 };
 
-/** DELETE book */
-const deleteBook = async (req, res) => {
+/** delete bus */
+const deleteBus = async (req, res) => {
     try {
-        const id = req.params.Id
-        const book = await bookService.listBook()
+        const reqBody = req.body;
+        const id =req.params.Id
+        const bus = await busService.listBus();
 
-        if (!book) {
+        if (!bus) {
             throw new Error("Something went wrong, please try again or later!");
         }
-        await bookService.deleteBook(id);
-
+        await busService.deleteBus(id);
         res.status(200).json({
             success: true,
-            message: "Book delete successfully!",
+            message: "Bus delet successfully!",
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
     }
 };
 
-module.exports = {createBook,listBook,deleteBook};
+module.exports = {createBus,listBus,deleteBus};

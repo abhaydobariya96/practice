@@ -19,9 +19,9 @@ router.get(
   hotelController.listHotel
 );
 
-// // delete hotel
-// router.delete(
-//   "/delete-hotel/:Id",
-//   hotelController.deleteHotel
-// );
+// delete hotel
+router.delete(
+  "/delete-hotel/:Id",
+  hotelController.deleteHotel
+);
 module.exports = router;
