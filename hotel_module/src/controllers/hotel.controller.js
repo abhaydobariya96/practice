@@ -42,4 +42,27 @@ const listHotel = async (req, res) => {
 };
 
 
-module.exports = {createHotel,listHotel};
+
+/** delete hotel */
+const deleteHotel = async (req, res) => {
+    try {
+        const id = req.params.Id
+        const hotel = await hotelService.listHotel();
+
+        if (!hotel) {
+            throw new Error("Something went wrong, please try again or later!");
+        }
+
+        await hotelService.deleteHotel(id)
+
+        res.status(200).json({
+            success: true,
+            message: "Hotel successfully delete!",
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+
+module.exports = {createHotel,listHotel,deleteHotel};

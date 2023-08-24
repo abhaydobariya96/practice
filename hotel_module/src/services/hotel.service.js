@@ -13,8 +13,8 @@ const listHotel = async (reqBody) => {
   return Hotel.find(reqBody)
 };
 
-// const deleteBook = async (id) => {
-//   return Book.findByIdAndDelete(id)
-// };
+const deleteHotel = async (id) => {
+  return Hotel.findByIdAndDelete(id)
+};
 
- module.exports = { createHotel,listHotel}
+ module.exports = { createHotel,listHotel,deleteHotel}
