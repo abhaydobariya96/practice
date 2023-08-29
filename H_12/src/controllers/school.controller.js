@@ -61,4 +61,25 @@ const deleteSchool = async (req, res) => {
     }
 };
 
-module.exports={createSchool,listSchool,deleteSchool}
+
+
+/** update school*/
+const updateSchool = async (req, res) => {
+    try {
+        const id = req.params.Id;
+
+        const schoolExists = await schoolService.getSchoolById(id);
+        if (!schoolExists) {
+            throw new Error("School not found!");
+        }
+await schoolService.updateDetails(id,req.body)
+        res.status(200).json({
+            success: true,
+            message: "school update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+module.exports={createSchool,listSchool,deleteSchool,updateSchool}

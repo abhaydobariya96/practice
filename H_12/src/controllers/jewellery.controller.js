@@ -44,7 +44,7 @@ const listJewellery = async (req, res) => {
 /** delete jewellery*/
 const deleteJewellery = async (req, res) => {
     try {
-        const id =req.params.Id
+        const id = req.params.Id
         const jewellery = await jewelleryService.listJewellery();
         if (!jewellery) {
             throw new Error("Something went wrong, please try again or later!");
@@ -59,4 +59,30 @@ const deleteJewellery = async (req, res) => {
     }
 };
 
-module.exports={createJewellery,listJewellery,deleteJewellery}
+
+/** update jewellery*/
+const updateJewellery = async (req, res) => {
+    try {
+        const id = req.params.Id;
+
+        const jewelleryExists = await jewelleryService.getJewelleryById(id);
+        if (!jewelleryExists) {
+            throw new Error("jewellery not found");
+        }
+        await jewelleryService.updateDetails(id, req.body)
+        res.status(200).json({
+            success: true,
+            message: "jewellery details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+
+module.exports = {
+    createJewellery,
+    listJewellery,
+    deleteJewellery,
+    updateJewellery
+}

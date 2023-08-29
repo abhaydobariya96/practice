@@ -15,7 +15,7 @@ const router = express.Router();
 // list hotel
 router.get(
   "/list-hotel",
-  validate(hotelValidation.listhotel),
+  // validate(hotelValidation.listhotel),
   hotelController.listHotel
 );
 
@@ -23,5 +23,10 @@ router.get(
 router.delete(
   "/delete-hotel/:Id",
   hotelController.deleteHotel
+);
+// update hotel
+router.put(
+  "/update-hotel/:Id",
+  hotelController.updateHotel
 );
 module.exports = router;

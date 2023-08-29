@@ -25,6 +25,12 @@ router.delete(
 musicController.deleteMusic
 );
 
+//update music
+router.put(
+"/update-music/:Id",
+musicController.updateMusic
+);
+
 
 
 module.exports =router;

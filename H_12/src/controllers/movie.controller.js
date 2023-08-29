@@ -42,7 +42,7 @@ const listMovie = async (req, res) => {
 /** delete movie*/
 const deleteMovie = async (req, res) => {
     try {
-        const id=req.params.Id
+        const id = req.params.Id
         const movie = await movieService.listMovie();
         if (!movie) {
             throw new Error("Something went wrong, please try again or later!");
@@ -58,6 +58,27 @@ const deleteMovie = async (req, res) => {
     }
 };
 
+/** update movie*/
+const updateMovie = async (req, res) => {
+    try {
+        const id = req.params.Id;
 
-module.exports={createMovie,listMovie,deleteMovie}
+        const movieExists = await movieService.getMovieById(id);
+        if (!movieExists) {
+            throw new Error("Movi Not Found!");
+        }
+        await movieService.updateDetails(id, req.body)
+        res.status(200).json({
+            success: true,
+            message: "movie update details successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+
+module.exports = { createMovie, listMovie, deleteMovie,updateMovie }
 

@@ -25,4 +25,10 @@ router.delete(
 schoolController.deleteSchool
 );
 
+//update school
+router.put(
+"/update-school/:Id",
+schoolController.updateSchool
+);
+
 module.exports =router;

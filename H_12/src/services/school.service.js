@@ -17,4 +17,12 @@ const createSchool = async (reqBody) => {
     return School.findByIdAndDelete(id)
   };
 
-   module.exports = { createSchool,listSchool,deleteSchool}
+  const getSchoolById = async (schoolid) => {
+    return School.findById(schoolid)
+  };
+
+  const updateDetails= async (schoolid,reqBody) => {
+    return School.findByIdAndUpdate(schoolid,{$set:reqBody})
+  };
+
+   module.exports = { createSchool,listSchool,deleteSchool,getSchoolById,updateDetails}

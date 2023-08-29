@@ -1,4 +1,4 @@
-const { groceryService } = require("../services");
+    const { groceryService } = require("../services");
 
 /** create grocery*/
 const createGrocery = async (req, res) => {
@@ -66,7 +66,7 @@ const updateGrocery = async (req, res) => {
     try {
         const id = req.params.groceryId
 
-        const groceryExists = await groceryService.getGroceryById(id);
+        const grocerygroceryExistsExists = await groceryService.getGroceryById(id);
         if (!groceryExists) {
             throw new Error("grocery not found");
         }

@@ -18,4 +18,12 @@ const createTravel = async (reqBody) => {
     return Travel.findByIdAndDelete(id)
   };
 
-   module.exports = { createTravel,listTravel,deleteTravel}
+  const getTravelById = async (travelid) => {
+    return Travel.findById(travelid)
+  };
+
+  const updateDetails = async (travelid,reqBody) => {
+    return Travel.findByIdAndUpdate(travelid,{$set:reqBody})
+  };
+
+   module.exports = { createTravel,listTravel,deleteTravel,updateDetails,getTravelById}
