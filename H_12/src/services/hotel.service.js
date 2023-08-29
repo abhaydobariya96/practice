@@ -1,4 +1,4 @@
-const { Hotel } = require("../models");
+const Hotel = require("../models/hotel.model");
 
 /**
  * Create hotel
@@ -10,11 +10,25 @@ const createHotel = async (reqBody) => {
 };
 
 const listHotel = async (reqBody) => {
-  return Hotel.find({ $or: [ { is_active:true}]})
+  return Hotel.find({ $or: [{ is_active: true }] })
 };
 
 const deleteHotel = async (id) => {
   return Hotel.findByIdAndDelete(id)
 };
 
- module.exports = { createHotel,listHotel,deleteHotel}
+const getHotelById = async (hotelId) => {
+  return Hotel.findById(hotelId)
+};
+
+const updateDetails = async (hotelId, updateBody) => {
+  return Hotel.findByIdAndUpdate(hotelId, { $set: updateBody });
+}
+
+module.exports = {
+  createHotel,
+  listHotel,
+  deleteHotel,
+  getHotelById,
+  updateDetails
+}

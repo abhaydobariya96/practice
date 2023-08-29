@@ -17,4 +17,12 @@ const createStationary = async (reqBody) => {
     return Stationary.findByIdAndDelete(id)
   };
 
-module.exports = { createStationary,listStationary,deleteStationary }
+  const getStationaryById = async (stationaryid) => {
+    return Stationary.findById( stationaryid)
+  };
+
+  const updateDetails = async (stationaryid,reqBody) => {
+    return Stationary.findByIdAndUpdate( stationaryid,{$set:reqBody})
+  };
+
+module.exports = { createStationary,listStationary,deleteStationary,getStationaryById,updateDetails }

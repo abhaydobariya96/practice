@@ -24,9 +24,7 @@ const createHotel = async (req, res) => {
 /** list hotel */
 const listHotel = async (req, res) => {
     try {
-        const reqBody = req.body;
-
-        const hotel = await hotelService.listHotel(reqBody);
+        const hotel = await hotelService.listHotel();
         if (!hotel) {
             throw new Error("Something went wrong, please try again or later!");
         }
@@ -64,5 +62,33 @@ const deleteHotel = async (req, res) => {
     }
 };
 
+/** update hotel */
+const updateHotel = async (req, res) => {
+    try {
+        const id = req.params.Id
 
-module.exports = {createHotel,listHotel,deleteHotel};
+        const hotelExists = await hotelService.getHotelById(id);
+
+        if (!hotelExists) {
+            throw new Error("Hotel Not Found!");
+        }
+        await hotelService.updateDetails(id, req.body)
+        res.status(200).json({
+            success: true,
+            message: "Hotel Details Update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message
+        });
+    }
+};
+
+
+module.exports = {
+    createHotel,
+    listHotel,
+    deleteHotel,
+    updateHotel
+};

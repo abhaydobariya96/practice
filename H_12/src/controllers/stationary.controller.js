@@ -52,7 +52,7 @@ const deleteStationary = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: "stationary list successfully!",
+            message: "stationary delete successfully!",
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
@@ -60,4 +60,24 @@ const deleteStationary = async (req, res) => {
 };
 
 
-module.exports = {createStationary,listStationary,deleteStationary}
+/** update stationary*/
+const updateStationary = async (req, res) => {
+    try {
+        const id = req.params.Id;
+
+        const stationaryExists = await stationaryService.getStationaryById(id);
+        if (!stationaryExists) {
+            throw new Error("Stationary Not Found!");
+        }
+await stationaryService.updateDetails(id,req.body)
+        res.status(200).json({
+            success: true,
+            message: "stationary details update successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+
+module.exports = {createStationary,listStationary,deleteStationary,updateStationary}
