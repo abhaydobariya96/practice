@@ -13,6 +13,7 @@ const movieRoute = require("./movie.route");
 const pharmacyRoute = require("./pharmacy.route");
 const musicRoute = require("./music.route");
 const groceryRoute = require("./grocery.route");
+const studentRoute = require("./student.route");
 
 const router = express.Router();
 
@@ -30,5 +31,6 @@ router.use("/movie", movieRoute);
 router.use("/pharmacy", pharmacyRoute);
 router.use("/music", musicRoute);
 router.use("/grocery", groceryRoute);
+router.use("/student", studentRoute);
 
 module.exports = router;

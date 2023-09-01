@@ -1,28 +1,28 @@
-const { Stationary} = require("../models");
+const { Student} = require("../models");
 
 /**
- * Create Stationary
+ * Create Student
  * @param {object} reqBody
- * @returns {Promise<Stationary>}
+ * @returns {Promise<Student>}
  */
-const createStationary = async (reqBody) => {
-  return Stationary.create(reqBody)
+const createStudent = async (reqBody) => {
+  return Student.create(reqBody)
 };
 
-  const listStationary = async (reqBody) => {
-    return Stationary.find({ $or: [ { is_active:true}]})
+  const listStudent = async (reqBody) => {
+    return Student.find({ $or: [ { is_active:true}]})
   };
 
-  const deleteStationary = async (id) => {
-    return Stationary.findByIdAndDelete(id)
+  const deleteStudent = async (id) => {
+    return Student.findByIdAndDelete(id)
   };
 
-  const getStationaryById = async (stationaryid) => {
-    return Stationary.findById( stationaryid)
+  const getStudentById = async (studentid) => {
+    return Student.findById( studentid)
   };
 
-  const updateDetails = async (stationaryid,reqBody) => {
-    return Stationary.findByIdAndUpdate( stationaryid,{$set:reqBody})
+  const updateDetails = async (studentid,reqBody) => {
+    return Student.findByIdAndUpdate( studentid,{$set:reqBody})
   };
 
-module.exports = { createStationary,listStationary,deleteStationary,getStationaryById,updateDetails }
+module.exports = { createStudent,listStudent,deleteStudent,getStudentById,updateDetails }
