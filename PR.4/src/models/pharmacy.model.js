@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const pharmacySchema = new mongoose.Schema(
     {
-        customers_name : {
+        customers_name: {
             type: String,
             trim: true,
         },
@@ -25,9 +25,9 @@ const pharmacySchema = new mongoose.Schema(
             type: Boolean,
             default: true,
         },
-        category:{
-            type:mongoose.Types.ObjectId,
-            ref:"category"
+        category: {
+            type: mongoose.Types.ObjectId,
+            ref: "category"
         }
     },
     {
@@ -36,5 +36,5 @@ const pharmacySchema = new mongoose.Schema(
     }
 )
 
-const pharmacy= mongoose.model("pharmacy",pharmacySchema);
+const pharmacy = mongoose.model("pharmacy", pharmacySchema);
 module.exports = pharmacy;

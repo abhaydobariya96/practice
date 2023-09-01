@@ -11,5 +11,6 @@ module.exports.pharmacyValidation = require("./pharmacy.validation");
 module.exports.movieValidation = require("./movie.validation");
 module.exports.musicValidation = require("./music.validation");
 module.exports.groceryValidation = require("./grocery.validation");
+module.exports.studentValidation = require("./student.validation");
 
 // module.exports.tokenValidation = require("./token.validation");

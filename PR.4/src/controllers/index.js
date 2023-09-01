@@ -10,3 +10,4 @@ module.exports.stationaryController = require("./stationary.controller");
 module.exports.movieController = require("./movie.controller");
 module.exports.musicController = require("./music.controller");
 module.exports.groceryController = require("./grocery.controller");
+module.exports.studentController = require("./student.controller");
