@@ -1,5 +1,5 @@
 const express = require("express")
-const bookValidation = require("../../validations/book.validation");
+const bookValidation = require("../../validations/");
 const bookController = require("../../controllers/book.controller");
 const validate = require("../../middlewares/validate");
 

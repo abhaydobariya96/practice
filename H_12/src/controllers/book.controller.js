@@ -62,7 +62,7 @@ const deleteBook = async (req, res) => {
 };
 
 /** update book */
-const updateBook = async (req, res) => {
+const updateBook             = async (req, res) => {
     try {
         const id = req.params.bookId
 
