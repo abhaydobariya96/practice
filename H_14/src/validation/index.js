@@ -1,0 +1,6 @@
+module.exports.cartValidation = require("./cart.validation")
+module.exports.orderValidation = require("./order.validation")
+module.exports.userValidation = require("./user.validation")
+module.exports.ElectronicValidation = require("./electronic.validation")
+module.exports.phoneValidation = require("./phone.validation")
+module.exports.vivoValidation = require("./vivo.validation")

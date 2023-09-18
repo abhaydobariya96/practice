@@ -1,0 +1,6 @@
+module.exports.cartService = require("./cart.service")
+module.exports.orderService = require("./order.service")
+module.exports.userService = require("./user.service")
+module.exports.ElectronicService = require("./Electronic.service")
+module.exports.phneService = require("./phone.service")
+module.exports.phneService = require("./vivo.service.js")
