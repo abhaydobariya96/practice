@@ -1,0 +1,6 @@
+module.exports.Cart = require("./cart.model")
+module.exports.Order = require("./order.model")
+module.exports.User = require("./user.model")
+module.exports.Electronic = require("./electronics.model")
+module.exports.Phone = require("./phone.model")
+module.exports.Vivo = require("./vivo.model")

@@ -1,0 +1,6 @@
+module.exports.cartController=require("./cart.controller")
+module.exports.orderController=require("./order.controller")
+module.exports.userController=require("./user.controller")
+module.exports.electronicController=require("./electronic.controller")
+module.exports.phoneController=require("./phone.controller")
+module.exports.vivoController=require("./vivo.controller")
