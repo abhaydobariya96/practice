@@ -1,0 +1,7 @@
+module.exports.coachVallidation =require("./coach.vallidation")
+module.exports.contact_usVallidation =require("./contact_us.vallidation")
+module.exports.newsVallidation =require("./news.validation")
+module.exports.playerVallidation =require("./player.validation")
+module.exports.resultVallidation =require("./result.validation")
+module.exports.categoryVallidation =require("./category.validation")
+module.exports.galleryVallidation =require("./gallery.validation")
