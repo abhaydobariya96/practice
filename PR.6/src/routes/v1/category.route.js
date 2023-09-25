@@ -2,6 +2,7 @@ const express = require("express")
 const categoryValidation = require("../../validations/category.validation")
 const { categoryController } = require("../../controllers")
 const validate = require("../../middlewares/validate")
+const { upload } = require("../../middlewares/upload")
 
 const router = express.Router();
 
@@ -9,10 +10,10 @@ const router = express.Router();
 /**create category */
 router.post(
     "/create-category",
+    upload.single("image"),
     validate(categoryValidation.createCategory),
     categoryController.createCategory
 )
-
 /**list category */
 router.get(
     "/list-category",
@@ -27,6 +28,7 @@ router.delete(
 /**update category */
 router.put(
     "/update-category/:categoryId",
+    upload.single("image"),
     categoryController.updateCategory
 )
 

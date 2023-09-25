@@ -1,15 +1,24 @@
 const { categoryService } = require("../services")
+const fs = require("fs")
+
 
 const createCategory = async (req, res) => {
     try {
         const reqBody = req.body;
+
+        if (req.file) {
+            reqBody.image = req.file.filename;
+        } else {
+            throw new Error("category image is required!");
+        }
+
         const category = await categoryService.createCategory(reqBody);
         if (!category) {
             throw new Error("category not found!");
         }
         res.status(200).json({
             success: true,
-            message: ("category create successfully"),
+            message: ("category create successfully!"),
             data: { category }
         })
     } catch (error) {
@@ -25,7 +34,7 @@ const listCategory = async (req, res) => {
         const category = await categoryService.listCategory(reqBody);
         if (!category) {
             throw new Error("category not found!");
-         }
+        }
         res.status(200).json({
             success: true,
             message: ("category list successfully"),
@@ -61,15 +70,28 @@ const deleteCategory = async (req, res) => {
 
 const updateCategory = async (req, res) => {
     try {
+        const reqBody = req.body;
         const id = req.params.categoryId;
-        const category = await categoryService.getCategoryById(id);
-        if (!category) {
+        const categoryEx = await categoryService.getCategoryById(id);
+        if (!categoryEx) {
             throw new Error("category not found!");
         }
-        await categoryService.updateDetails(id, req.body)
+        if (req.file) {
+            reqBody.image = req.file.filename;
+        }
+        const category = await categoryService.updateDetails(id, req.body)
+        if (category) {
+            const filePath = `./public/image/${category.image}`
+            if (fs.existsSync(filePath)) {
+                fs.unlinkSync(filePath)
+            }
+        } else {
+            throw new Error("Somthing want to wrong, please try again or leter!")
+        }
         res.status(200).json({
             success: true,
             message: ("category update successfully"),
+            data: category,
         })
     } catch (error) {
         res.status(400).json({
