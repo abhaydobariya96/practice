@@ -14,8 +14,8 @@ const listCategory = async (reqBody) => {
 const deleteCategory = async (Id) => {
     return Category.findByIdAndDelete(Id)
 }
-const getCategoryById = async (coathId) => {
-    return Category.findById(coathId)
+const getCategoryById = async (categoryId) => {
+    return Category.findById(categoryId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Category.findByIdAndUpdate(Id, { $set: updateBody })

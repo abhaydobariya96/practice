@@ -7,7 +7,7 @@ const createCategory = async (req, res) => {
         if (!category) {
             throw new Error("category not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
             message: ("category create successfully"),
             data: { category }
@@ -25,7 +25,7 @@ const listCategory = async (req, res) => {
         const category = await categoryService.listCategory(reqBody);
         if (!category) {
             throw new Error("category not found!");
-        }
+         }
         res.status(200).json({
             success: true,
             message: ("category list successfully"),
@@ -66,7 +66,7 @@ const updateCategory = async (req, res) => {
         if (!category) {
             throw new Error("category not found!");
         }
-        await categoryService.updateDetails(id,req.body)
+        await categoryService.updateDetails(id, req.body)
         res.status(200).json({
             success: true,
             message: ("category update successfully"),

@@ -14,8 +14,8 @@ const listNews = async (reqBody) => {
 const deleteNews = async (Id) => {
     return News.findByIdAndDelete(Id)
 }
-const getNewsById = async (coathId) => {
-    return News.findById(coathId)
+const getNewsById = async (newsId) => {
+    return News.findById(newsId)
 }
 const updateDetails = async (Id, updateBody) => {
     return News.findByIdAndUpdate(Id, { $set: updateBody })

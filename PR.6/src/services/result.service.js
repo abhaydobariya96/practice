@@ -14,8 +14,8 @@ const listResult = async (reqBody) => {
 const deleteResult = async (Id) => {
     return Result.findByIdAndDelete(Id)
 }
-const getResultById = async (coathId) => {
-    return Result.findById(coathId)
+const getResultById = async (resultId) => {
+    return Result.findById(resultId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Result.findByIdAndUpdate(Id, { $set: updateBody })

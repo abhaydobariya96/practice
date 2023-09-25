@@ -14,8 +14,8 @@ const listPlayer = async (reqBody) => {
 const deletePlayer = async (Id) => {
     return Player.findByIdAndDelete(Id)
 }
-const getPlayerById = async (coathId) => {
-    return Player.findById(coathId)
+const getPlayerById = async (playerId) => {
+    return Player.findById(playerId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Player.findByIdAndUpdate(Id, { $set: updateBody })
