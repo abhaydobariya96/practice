@@ -14,8 +14,8 @@ const listTournament = async (reqBody) => {
 const deleteTournament = async (Id) => {
     return Tournament.findByIdAndDelete(Id)
 }
-const getTournamentById = async (coathId) => {
-    return Tournament.findById(coathId)
+const getTournamentById = async (TournamenthId) => {
+    return Tournament.findById(TournamenthId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Tournament.findByIdAndUpdate(Id, { $set: updateBody })

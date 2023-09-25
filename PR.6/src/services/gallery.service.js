@@ -14,8 +14,8 @@ const listGallery = async (reqBody) => {
 const deleteGallery = async (Id) => {
     return Gallery.findByIdAndDelete(Id)
 }
-const getGalleryById = async (coathId) => {
-    return Gallery.findById(coathId)
+const getGalleryById = async (galleryId) => {
+    return Gallery.findById(galleryId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Gallery.findByIdAndUpdate(Id, { $set: updateBody })
