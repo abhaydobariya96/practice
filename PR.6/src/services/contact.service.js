@@ -9,8 +9,8 @@ const createContact = async (reqBody) => {
     return Contact.create(reqBody)
 }
 
-const listContact = async (reqBody) => {
-    return Contact.find(reqBody)
+const listContact = async () => {
+    return Contact.find()
 }
 const deleteContact = async (Id) => {
     return Contact.findByIdAndDelete(Id)
@@ -18,7 +18,7 @@ const deleteContact = async (Id) => {
 const getContactById = async (conatactId) => {
     return Contact.findById(conatactId)
 }
-const updateContact = async (Id, updateBody) => {
+const updateDetails = async (Id, updateBody) => {
     return Contact.findByIdAndUpdate(Id, { $set: updateBody })
 }
 
@@ -28,5 +28,5 @@ module.exports = {
     listContact,
     deleteContact,
     getContactById,
-    updateContact
+    updateDetails
 }

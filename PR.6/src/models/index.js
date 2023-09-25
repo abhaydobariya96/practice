@@ -1,4 +1,4 @@
-module.exports.Coach = require("./coach.mode")
+module.exports.Coach = require("./coach.model")
 module.exports.Contact = require("./contact.model")
 module.exports.News= require("./news.model")
 module.exports.Player= require("./player.model")

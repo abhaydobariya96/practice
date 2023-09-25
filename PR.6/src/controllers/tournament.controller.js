@@ -7,7 +7,7 @@ const createTournament = async (req, res) => {
         if (!tournament) {
             throw new Error("tournament not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
             message: ("tournament create successfully"),
             data: { tournament }
@@ -66,10 +66,11 @@ const updateTournament = async (req, res) => {
         if (!tournament) {
             throw new Error("tournament not found!");
         }
-        await tournamentService.updateDetails(id,req.body)
+        await tournamentService.updateDetails(id, req.body)
         res.status(200).json({
             success: true,
             message: ("tournament update successfully"),
+            data: { tournament }
         })
     } catch (error) {
         res.status(400).json({

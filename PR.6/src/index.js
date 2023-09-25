@@ -17,9 +17,9 @@ connectDB();
 
 app.use("/v1", routes);
 
-// app.use((req, res, next) => {
-//     next(new Error("Route not found!"));
-// });
+app.use((req, res, next) => {
+    next(new Error("Route not found!"));
+});
 
 const server = http.createServer(app);
 

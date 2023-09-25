@@ -14,8 +14,8 @@ const listCoach = async (reqBody) => {
 const deleteCoach = async (Id) => {
     return Coach.findByIdAndDelete(Id)
 }
-const getCoachById = async (coathId) => {
-    return Coach.findById(coathId)
+const getCoachById = async (CoachId) => {
+    return Coach.findById(CoachId)
 }
 const updateDetails = async (Id, updateBody) => {
     return Coach.findByIdAndUpdate(Id, { $set: updateBody })
