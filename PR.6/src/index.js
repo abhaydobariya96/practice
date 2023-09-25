@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { connectDB } = require("./db/dbconnection")
 const config = require("./config/config");
-// const routes = require("./routes/v1");
+const routes = require("./routes/v1");
 const app = express();
 const http = require("http");
 const path = require("path")
@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, `./public`)));
 
 connectDB();
 
-// app.use("/v1", routes);
+app.use("/v1", routes);
 
 // app.use((req, res, next) => {
 //     next(new Error("Route not found!"));

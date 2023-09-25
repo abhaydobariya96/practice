@@ -9,7 +9,7 @@ const createResult = async (reqBody) => {
 }
 
 const listResult = async (reqBody) => {
-    return Result.find(reqBody)
+    return Result.find(reqBody).populate("player")
 }
 const deleteResult = async (Id) => {
     return Result.findByIdAndDelete(Id)

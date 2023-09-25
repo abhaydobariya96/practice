@@ -26,12 +26,15 @@ const newsSchema = new mongoose.Schema(
             type:String,
             trim:true
         },
-
+        gallery:{
+            type:mongoose.Types.ObjectId,
+            ref:"gallery",
+        },
         is_activ:{
             type:Boolean,
             default:true
         }
     }
 )
-const news = mongoose.model("contact",newsSchema)
+const news = mongoose.model("news",newsSchema)
 module.exports=news;

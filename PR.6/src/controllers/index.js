@@ -1,5 +1,5 @@
 module.exports.coachController=require("./coach.controller")
-module.exports.contact_usController=require("./contact_us.controller")
+module.exports.contactController=require("./contact.controller")
 module.exports.newsController=require("./news.controller")
 module.exports.playerController=require("./player.controller")
 module.exports.resultController=require("./result.controller")

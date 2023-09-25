@@ -30,6 +30,11 @@ const tournamentSchema = new mongoose.Schema(
             type:String,
             trim:true
         },
+        player: {
+            type:mongoose.Types.ObjectId,
+            ref:"player"
+
+        },
         is_activ:{
             type:Boolean,
             default:true

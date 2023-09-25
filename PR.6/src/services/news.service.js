@@ -9,7 +9,7 @@ const createNews = async (reqBody) => {
 }
 
 const listNews = async (reqBody) => {
-    return News.find(reqBody)
+    return News.find(reqBody).populate("gallery")
 }
 const deleteNews = async (Id) => {
     return News.findByIdAndDelete(Id)

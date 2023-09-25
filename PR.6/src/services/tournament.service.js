@@ -9,7 +9,7 @@ const createTournament = async (reqBody) => {
 }
 
 const listTournament = async (reqBody) => {
-    return Tournament.find(reqBody)
+    return Tournament.find(reqBody).populate("player")
 }
 const deleteTournament = async (Id) => {
     return Tournament.findByIdAndDelete(Id)
