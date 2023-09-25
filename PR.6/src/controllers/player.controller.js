@@ -7,7 +7,7 @@ const createPlayer = async (req, res) => {
         if (!player) {
             throw new Error("player not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
             message: ("player create successfully"),
             data: { player }
@@ -66,10 +66,11 @@ const updatePlayer = async (req, res) => {
         if (!player) {
             throw new Error("player not found!");
         }
-        await playerService.updateDetails(id,req.body)
+        await playerService.updateDetails(id, req.body)
         res.status(200).json({
             success: true,
             message: ("player update successfully"),
+            data: { player  }
         })
     } catch (error) {
         res.status(400).json({

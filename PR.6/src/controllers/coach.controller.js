@@ -1,15 +1,18 @@
 const { coachService } = require("../services")
+const fs = require("fs")
+
 
 const createCoach = async (req, res) => {
     try {
         const reqBody = req.body;
+
         const coach = await coachService.createCoach(reqBody);
         if (!coach) {
             throw new Error("coach not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
-            message: ("coach create successfully"),
+            message: ("coach create successfully!"),
             data: { coach }
         })
     } catch (error) {
@@ -61,15 +64,28 @@ const deleteCoach = async (req, res) => {
 
 const updateCoach = async (req, res) => {
     try {
+        const reqBody = req.body;
         const id = req.params.coachId;
-        const coach = await coachService.getCoachById(id);
-        if (!coach) {
+        const coachEx = await coachService.getCoachById(id);
+        if (!coachEx) {
             throw new Error("coach not found!");
         }
-        await coachService.updateDetails(id,req.body)
+        if (req.file) {
+            reqBody.image = req.file.filename;
+        }
+        const coach = await coachService.updateDetails(id, req.body)
+        if (coach) {
+            const filePath = `./public/image/${coach.image}`
+            if (fs.existsSync(filePath)) {
+                fs.unlinkSync(filePath)
+            }
+        } else {
+            throw new Error("Somthing want to wrong, please try again or leter!")
+        }
         res.status(200).json({
             success: true,
             message: ("coach update successfully"),
+            data: coach,
         })
     } catch (error) {
         res.status(400).json({

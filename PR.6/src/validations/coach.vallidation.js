@@ -1,25 +1,25 @@
 const Joi = require("joi")
 
 const createCoach = {
-    body:Joi.object().keys({
-        First_Name:Joi.string().required().trim(),
-        FLast_Name:Joi.string().required().trim(),
-        Date_of_Birth:Joi.string().required().trim(),
-        Email:Joi.string().required().trim(),
-        Address:Joi.string().required().trim(),
+    body: Joi.object().keys({
+        FirstName: Joi.string().required().trim(),
+        LastName: Joi.string().required().trim(),
+        DateofBirth: Joi.string().required().trim(),
+        Email: Joi.string().required().trim(),
+        Address: Joi.string().required().trim(),
     })
 }
 const listCoach = {
-    query:Joi.object().keys({
-        First_Name:Joi.string().allow("").trim(),
-        FLast_Name:Joi.string().allow("").trim(),
-        Date_of_Birth:Joi.string().allow("").trim(),
-        Email:Joi.string().allow("").trim(),
-        Address:Joi.string().allow("").trim(),
+    query: Joi.object().keys({
+        FirstName: Joi.string().allow("").trim(),
+        LastName: Joi.string().allow("").trim(),
+        DateofBirth: Joi.string().allow("").trim(),
+        Email: Joi.string().allow("").trim(),
+        Address: Joi.string().allow("").trim()
     })
 }
 
-module.exports={
+module.exports = {
     createCoach,
     listCoach
 }

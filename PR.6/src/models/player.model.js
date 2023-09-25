@@ -43,8 +43,12 @@ const playerSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         },
+    },
+    {
+        timestamps:true,
+        versionKey:false
     }
 )
 
 const player = mongoose.model("player", playerSchema);
-exports.module = player;
+module.exports = player;

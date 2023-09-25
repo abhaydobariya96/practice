@@ -39,6 +39,10 @@ const tournamentSchema = new mongoose.Schema(
             type:Boolean,
             default:true
         }
+    },
+    {
+        timestamps:true,
+        versionKey:false
     }
 )
 const tournament = mongoose.model("tournament",tournamentSchema)

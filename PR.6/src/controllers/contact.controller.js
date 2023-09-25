@@ -1,16 +1,16 @@
-const { conatactService } = require("../services")
+const { contactService } = require("../services")
 
 const createContact = async (req, res) => {
     try {
         const reqBody = req.body;
-        const conatact = await conatactService.createContact(reqBody);
-        if (!conatact) {
-            throw new Error("conatact not found!");
+        const contact = await contactService.createContact(reqBody);
+        if (!contact) {
+            throw new Error("contact not found!");
         }
         res.status(200).json(   {
             success: true,
-            message: ("conatact create successfully"),
-            data: { conatact }
+            message: ("contact create successfully"),
+            data: { contact }
         })
     } catch (error) {
         res.status(400).json({
@@ -22,14 +22,14 @@ const createContact = async (req, res) => {
 const listContact = async (req, res) => {
     try {
         const reqBody = req.body;
-        const conatact = await conatactService.listContact(reqBody);
-        if (!conatact) {
-            throw new Error("conatact not found!");
+        const contact = await contactService.listContact();
+        if (!contact) {
+            throw new Error("contact not found!");
         }
         res.status(200).json({
             success: true,
-            message: ("conatact list successfully"),
-            data: { conatact }
+            message: ("contact list successfully"),
+            data: { contact }
         })
     } catch (error) {
         res.status(400).json({
@@ -42,14 +42,14 @@ const listContact = async (req, res) => {
 const deleteContact = async (req, res) => {
     try {
         const id = req.params.Id;
-        const conatact = await conatactService.listContact();
-        if (!conatact) {
-            throw new Error("conatact not found!");
+        const contact = await contactService.listContact(id);
+        if (!contact) {
+            throw new Error("contact not found!");
         }
-        await conatactService.deleteContact(id)
+        await contactService.deleteContact(id)
         res.status(200).json({
             success: true,
-            message: ("conatact delete successfully"),
+            message: ("contact delete successfully"),
         })
     } catch (error) {
         res.status(400).json({
@@ -61,15 +61,16 @@ const deleteContact = async (req, res) => {
 
 const updateContact = async (req, res) => {
     try {
-        const id = req.params.contacId;
-        const conatact = await conatactService.getContactById(id);
-        if (!conatact) {
-            throw new Error("conatact not found!");
+        const id = req.params.contactId;
+        const contact = await contactService.getContactById(id);
+        console.log(id);
+        if (!contact) {
+            throw new Error("contact not found!");
         }
-        await conatactService.updateDetails(id,req.body)
+        await contactService.updateDetails(id,req.body)
         res.status(200).json({
             success: true,
-            message: ("conatact update successfully"),
+            message: ("contact update successfully"),
         })
     } catch (error) {
         res.status(400).json({

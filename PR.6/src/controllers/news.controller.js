@@ -7,7 +7,7 @@ const createNews = async (req, res) => {
         if (!news) {
             throw new Error("news not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
             message: ("news create successfully"),
             data: { news }
@@ -62,19 +62,20 @@ const deleteNews = async (req, res) => {
 const updateNews = async (req, res) => {
     try {
         const id = req.params.newsId;
-        const news = await newsService.getNewsById(id);
-        if (!news) {
+        const newsEx = await newsService.getNewsById(id);
+        if (!newsEx) {
             throw new Error("news not found!");
         }
-        await newsService.updateDetails(id,req.body)
+        const news = await newsService.updateDetails(id, req.body)
         res.status(200).json({
             success: true,
             message: ("news update successfully"),
+            data: { news }
         })
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: error.message
+            message: error.message,
         })
     }
 }

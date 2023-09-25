@@ -1,5 +1,5 @@
 const express = require("express")
-const coachValidation = require("../../validations/coach.vallidation")
+const { coachVallidation } = require("../../validations")
 const { coachController } = require("../../controllers")
 const validate = require("../../middlewares/validate")
 
@@ -9,14 +9,14 @@ const router = express.Router();
 /**create coach */
 router.post(
     "/create-coach",
-    validate(coachValidation.createCoach),
+    validate(coachVallidation.createCoach),
     coachController.createCoach
 )
 
 /**list coach */
 router.get(
     "/list-coach",
-    validate(coachValidation.listCoach),
+    validate(coachVallidation.listCoach),
     coachController.listCoach
 )
 /**delete coach */

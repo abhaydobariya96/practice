@@ -7,7 +7,7 @@ const createResult = async (req, res) => {
         if (!result) {
             throw new Error("result not found!");
         }
-        res.status(200).json(   {
+        res.status(200).json({
             success: true,
             message: ("result create successfully"),
             data: { result }
@@ -66,10 +66,11 @@ const updateResult = async (req, res) => {
         if (!result) {
             throw new Error("result not found!");
         }
-        await resultService.updateDetails(id,req.body)
+        await resultService.updateDetails(id, req.body)
         res.status(200).json({
             success: true,
             message: ("result update successfully"),
+            data: { result }
         })
     } catch (error) {
         res.status(400).json({

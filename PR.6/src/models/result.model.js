@@ -39,6 +39,10 @@ const resultSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         }
+    },
+    {
+        timestamps:true,
+        versionKey:false,
     }
 )
 const result = mongoose.model("result", resultSchema)
