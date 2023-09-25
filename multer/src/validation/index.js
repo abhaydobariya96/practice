@@ -1,0 +1,5 @@
+module.exports.categoryVallidation=require("../validation/category.validation")
+module.exports.bookVallidation=require("../validation/book.validation")
+module.exports.hotelVallidation=require("../validation/hotel.validation")
+module.exports.stationaryVallidation=require("../validation/stationary.validation")
+module.exports.userVallidation=require("../validation/user.validation")
