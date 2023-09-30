@@ -1,8 +1,8 @@
 const express = require("express")
-const categoryRoute = require("./category.route")
+const blogRoute = require("./blog.route")
 
 const router = express.Router();
 
-router.use("/category",categoryRoute)
+router.use("/blog", blogRoute)
 
 module.exports = router

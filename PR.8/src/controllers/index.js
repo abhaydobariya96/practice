@@ -1,1 +1,1 @@
-module.exports.categoryController=require("./category.controller")
+module.exports.blogController=require("./blog.controller")

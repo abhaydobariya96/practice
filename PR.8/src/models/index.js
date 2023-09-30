@@ -1,1 +1,1 @@
-module.exports.Category= require("./category.model")
+module.exports.Blog = require("./blog.model")
